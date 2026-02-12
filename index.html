@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>PD Structure Mastery</title>
+
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- iOS home-screen icon support (optional; still works without custom icons) -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- Standard, reliable PDF export library (CDN) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <script defer src="./app.js"></script>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="top-left">
+    <span class="pill"><b>PD Structure Mastery</b></span>
+    <span class="pill muted" id="statusPill">Ready</span>
+    <span class="pill" id="gatePill">Export locked</span>
+  </div>
+
+  <div class="top-right">
+    <button id="exportPNG" disabled>Export PNG</button>
+    <button id="exportPDF" disabled>Export PDF</button>
+    <button id="resetAll" class="danger">Reset</button>
+  </div>
+</header>
+
+<main class="layout">
+  <!-- LEFT: drug + checkpoints -->
+  <section class="card">
+    <h2>1) Select drug + pass checkpoints</h2>
+
+    <div class="pad">
+      <label>Student name (optional)</label>
+      <input id="studentName" placeholder="Student name">
+
+      <label>Date (optional)</label>
+      <input id="dateStr" placeholder="MM/DD/YYYY">
+
+      <label>Parkinson’s drug (teaching progression)</label>
+      <select id="drugSelect"></select>
+      <div class="small muted" id="drugInfo"></div>
+
+      <div class="divider"></div>
+
+      <h3 class="subhead">Checkpoints (strict Go/No-Go)</h3>
+      <div class="small muted">
+        You get <b>2 attempts</b>. After that, a hint unlocks.
+      </div>
+      <div id="checkpointList"></div>
+
+      <div class="divider"></div>
+
+      <h3 class="subhead">Feedback</h3>
+      <div id="feedbackBox" class="feedback"></div>
+    </div>
+  </section>
+
+  <!-- RIGHT: structure drawing + mapping -->
+  <section class="card">
+    <h2>2) Draw structure + map features</h2>
+
+    <div class="pad">
+      <div class="toolbar">
+        <button id="toolPen" class="primary">Pen</button>
+        <button id="toolEraser">Eraser</button>
+
+        <label class="small">Size
+          <input id="penSize" type="range" min="1" max="18" value="4">
+        </label>
+
+        <label class="small">
+          <input id="penOnly" type="checkbox"> Pen-only (palm rejection)
+        </label>
+
+        <button id="undoBtn">Undo</button>
+        <button id="redoBtn">Redo</button>
+        <button id="clearCanvas" class="danger subtle">Clear drawing</button>
+      </div>
+
+      <div class="stageWrap">
+        <div class="stageHint">
+          Draw the scaffold clearly. Use wedges/dashes if relevant.
+        </div>
+
+        <div id="stage" class="stage" aria-label="Drawing canvas">
+          <canvas id="canvas"></canvas>
+        </div>
+      </div>
+
+      <!-- Mapping panel: only appears when unlocked -->
+      <div id="mapPanel" class="mapPanel" style="display:none;">
+        <div class="mapHeader">
+          <b>Tap-to-map required features (unlocks after FG checkpoint passed)</b>
+          <span class="small muted" id="mapReqText"></span>
+        </div>
+
+        <div class="mapControls">
+          <label class="small">Feature to place:</label>
+          <select id="mapLabelSelect"></select>
+
+          <label class="small">
+            <input id="mapMode" type="checkbox">
+            Map mode (tap places markers; drawing disabled)
+          </label>
+
+          <button id="clearMarkers" class="subtle">Clear markers</button>
+          <span class="small" id="mapStatus"></span>
+        </div>
+
+        <div class="small muted">
+          In <b>Map mode</b>, choose a feature and tap on the structure where it appears.
+          You must map <b>every required feature</b> to unlock export.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
