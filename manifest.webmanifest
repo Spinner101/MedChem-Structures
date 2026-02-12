@@ -1,0 +1,9 @@
+{
+  "name": "PD Structure Mastery",
+  "short_name": "PD Mastery",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "description": "Hand-draw PD drug structures and pass strict pharmacophore/SAR checkpoints with feature mapping."
+}
