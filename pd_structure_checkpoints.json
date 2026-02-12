@@ -1,0 +1,294 @@
+{
+  "module": "PD_Structure_Checkpoints",
+  "version": "1.0",
+  "drugs": [
+    {
+      "drug": "levodopa",
+      "order": 10,
+      "checkpoints": [
+        {
+          "id": "fg",
+          "title": "Select ALL functional groups present",
+          "type": "multi_select",
+          "attempts": 2,
+          "choices": ["catechol", "amino_acid", "carboxylic_acid", "basic_amine", "propargylamine", "adamantane_core", "nitrocatechol_motif", "heterocycle"],
+          "correct": ["catechol", "amino_acid", "carboxylic_acid"],
+          "requires_tap_map": true,
+          "tap_labels": ["catechol", "amino_acid", "carboxylic_acid"],
+          "hint": "Levodopa is an amino acid with a catechol ring (two phenolic OH) and a carboxylic acid."
+        },
+        {
+          "id": "pharm",
+          "title": "Choose the best pharmacophore description",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": [
+            "MAO-B inhibitor (propargylamine warhead)",
+            "dopamine precursor (catechol amino acid scaffold)",
+            "COMT inhibitor (nitrocatechol motif)",
+            "dopamine agonist (basic heterocycle)"
+          ],
+          "correct": ["dopamine precursor (catechol amino acid scaffold)"],
+          "hint": "Levodopa is a dopamine precursor and uses amino acid transport into the CNS."
+        },
+        {
+          "id": "sar",
+          "title": "Pick the most accurate SAR / concept statement",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": [
+            "Catechol decreases metabolism by COMT",
+            "Catechol increases COMT metabolism (shorter half-life without inhibitors)",
+            "Propargylamine drives COMT inhibition",
+            "Adamantane makes it highly polar and non-CNS"
+          ],
+          "correct": ["Catechol increases COMT metabolism (shorter half-life without inhibitors)"],
+          "hint": "Catechols are classic COMT substrates; COMT inhibitors prolong levodopa effect."
+        }
+      ]
+    },
+    {
+      "drug": "carbidopa",
+      "order": 11,
+      "checkpoints": [
+        {
+          "id": "pharm",
+          "title": "Carbidopa is best described as:",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": [
+            "central COMT inhibitor",
+            "peripheral AADC inhibitor (does not cross BBB well)",
+            "dopamine agonist",
+            "NMDA antagonist"
+          ],
+          "correct": ["peripheral AADC inhibitor (does not cross BBB well)"],
+          "hint": "Carbidopa inhibits peripheral dopa decarboxylase to increase levodopa reaching the brain."
+        },
+        {
+          "id": "sar",
+          "title": "Which property best explains its peripheral selectivity?",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["high lipophilicity", "high polarity / poor BBB penetration", "propargylamine motif", "adamantane cage"],
+          "correct": ["high polarity / poor BBB penetration"],
+          "hint": "Peripheral selectivity is taught as limited BBB penetration (more polar)."
+        }
+      ]
+    },
+    {
+      "drug": "rasagiline",
+      "order": 20,
+      "checkpoints": [
+        {
+          "id": "fg",
+          "title": "Select the key MAO-B inhibitor motif",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["propargylamine", "catechol", "nitrocatechol_motif", "carboxylic_acid"],
+          "correct": ["propargylamine"],
+          "requires_tap_map": true,
+          "tap_labels": ["propargylamine"],
+          "hint": "MAO-B inhibitors classically contain a propargylamine motif."
+        },
+        {
+          "id": "pharm",
+          "title": "Rasagiline is primarily a(n):",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["COMT inhibitor", "MAO-B inhibitor", "dopamine agonist", "dopamine precursor"],
+          "correct": ["MAO-B inhibitor"],
+          "hint": "Rasagiline inhibits MAO-B → decreases dopamine breakdown."
+        }
+      ]
+    },
+    {
+      "drug": "selegiline",
+      "order": 21,
+      "checkpoints": [
+        {
+          "id": "fg",
+          "title": "Select the key MAO-B inhibitor motif",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["propargylamine", "adamantane_core", "nitrocatechol_motif", "carboxylic_acid"],
+          "correct": ["propargylamine"],
+          "requires_tap_map": true,
+          "tap_labels": ["propargylamine"],
+          "hint": "Selegiline’s signature is the propargylamine warhead (classic MAO inhibitor feature)."
+        },
+        {
+          "id": "sar",
+          "title": "Key counseling concept (class-level) is:",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": [
+            "risk of serotonin toxicity with serotonergic drugs (concept)",
+            "severe chelation with dairy products",
+            "always causes hepatotoxicity",
+            "requires transdermal delivery"
+          ],
+          "correct": ["risk of serotonin toxicity with serotonergic drugs (concept)"],
+          "hint": "Reinforce serotonergic interaction precautions as a class concept."
+        }
+      ]
+    },
+    {
+      "drug": "entacapone",
+      "order": 30,
+      "checkpoints": [
+        {
+          "id": "fg",
+          "title": "Select the motif most associated with COMT inhibition (teaching motif)",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["nitrocatechol_motif", "propargylamine", "adamantane_core", "amino_acid"],
+          "correct": ["nitrocatechol_motif"],
+          "requires_tap_map": true,
+          "tap_labels": ["nitrocatechol_motif"],
+          "hint": "COMT inhibitor scaffolds are commonly taught with a nitrocatechol-like motif."
+        },
+        {
+          "id": "pharm",
+          "title": "Entacapone is primarily a(n):",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["MAO-B inhibitor", "COMT inhibitor (peripheral)", "dopamine agonist", "NMDA antagonist"],
+          "correct": ["COMT inhibitor (peripheral)"],
+          "hint": "Entacapone inhibits COMT mainly peripherally to prolong levodopa effect."
+        }
+      ]
+    },
+    {
+      "drug": "tolcapone",
+      "order": 31,
+      "checkpoints": [
+        {
+          "id": "pharm",
+          "title": "Tolcapone differs from entacapone by:",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": [
+            "having central + peripheral COMT inhibition (teaching distinction)",
+            "being a dopamine agonist",
+            "being a dopamine precursor",
+            "being an NMDA antagonist"
+          ],
+          "correct": ["having central + peripheral COMT inhibition (teaching distinction)"],
+          "hint": "Tolcapone is taught as more central-acting than entacapone."
+        },
+        {
+          "id": "sar",
+          "title": "Major safety flag to reinforce is:",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["hepatotoxicity risk", "serotonin toxicity risk", "chelation with metals", "patch-only delivery"],
+          "correct": ["hepatotoxicity risk"],
+          "hint": "Tolcapone has a well-known liver safety warning/monitoring requirement."
+        }
+      ]
+    },
+    {
+      "drug": "pramipexole",
+      "order": 40,
+      "checkpoints": [
+        {
+          "id": "fg",
+          "title": "Select the most important binding feature (teaching motif)",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["basic_amine", "nitrocatechol_motif", "propargylamine", "carboxylic_acid"],
+          "correct": ["basic_amine"],
+          "requires_tap_map": true,
+          "tap_labels": ["basic_amine"],
+          "hint": "Many dopamine agonists have an ionizable basic center important for receptor interaction."
+        },
+        {
+          "id": "pharm",
+          "title": "Pramipexole is primarily a(n):",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["dopamine agonist (D2/D3)", "dopamine precursor", "COMT inhibitor", "MAO-B inhibitor"],
+          "correct": ["dopamine agonist (D2/D3)"],
+          "hint": "Pramipexole is a dopamine agonist (commonly taught D2/D3)."
+        }
+      ]
+    },
+    {
+      "drug": "ropinirole",
+      "order": 41,
+      "checkpoints": [
+        {
+          "id": "fg",
+          "title": "Select the most important binding feature (teaching motif)",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["basic_amine", "catechol", "nitrocatechol_motif", "carboxylic_acid"],
+          "correct": ["basic_amine"],
+          "requires_tap_map": true,
+          "tap_labels": ["basic_amine"],
+          "hint": "Dopamine agonists often include an ionizable basic center."
+        },
+        {
+          "id": "pharm",
+          "title": "Ropinirole is primarily a(n):",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["dopamine agonist (D2/D3)", "dopamine precursor", "COMT inhibitor", "NMDA antagonist"],
+          "correct": ["dopamine agonist (D2/D3)"],
+          "hint": "Ropinirole is a dopamine agonist used for PD motor symptoms."
+        }
+      ]
+    },
+    {
+      "drug": "rotigotine",
+      "order": 42,
+      "checkpoints": [
+        {
+          "id": "pharm",
+          "title": "Rotigotine is best recognized as:",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["dopamine agonist delivered transdermally (patch)", "dopamine precursor", "MAO-B inhibitor", "COMT inhibitor"],
+          "correct": ["dopamine agonist delivered transdermally (patch)"],
+          "hint": "Rotigotine is commonly taught as the transdermal dopamine agonist."
+        },
+        {
+          "id": "sar",
+          "title": "Which property supports transdermal delivery (concept)?",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["higher lipophilicity", "high polarity", "zwitterion formation", "multiple charged centers"],
+          "correct": ["higher lipophilicity"],
+          "hint": "Transdermal delivery generally favors lipophilicity (within limits)."
+        }
+      ]
+    },
+    {
+      "drug": "amantadine",
+      "order": 50,
+      "checkpoints": [
+        {
+          "id": "fg",
+          "title": "Select the core scaffold",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["adamantane_core", "catechol", "nitrocatechol_motif", "propargylamine"],
+          "correct": ["adamantane_core"],
+          "requires_tap_map": true,
+          "tap_labels": ["adamantane_core"],
+          "hint": "Amantadine is an adamantane (cage) amine — rigid and lipophilic."
+        },
+        {
+          "id": "pharm",
+          "title": "Amantadine is best associated with which concept (teaching)?",
+          "type": "single_select",
+          "attempts": 2,
+          "choices": ["NMDA antagonism / anti-dyskinesia concept", "COMT inhibition", "MAO-B inhibition", "AADC inhibition"],
+          "correct": ["NMDA antagonism / anti-dyskinesia concept"],
+          "hint": "Amantadine is taught as NMDA-related and used for dyskinesia management."
+        }
+      ]
+    }
+  ]
+}
