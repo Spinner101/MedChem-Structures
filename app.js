@@ -1,6 +1,49 @@
 let drugs = [];
+let modules = [];
 let currentDrug = null;
-let attempts = 0;
+
+Promise.all([
+  fetch("data/drugs.json").then(r => r.json()),
+  fetch("data/modules.json").then(r => r.json())
+]).then(([drugData, moduleData]) => {
+  drugs = drugData.drugs;
+  modules = moduleData.modules;
+  populateModules();
+});
+
+function populateModules() {
+  const modSelect = document.getElementById("moduleSelect");
+
+  modules.forEach(m => {
+    const opt = document.createElement("option");
+    opt.value = m.id;
+    opt.textContent = m.name;
+    modSelect.appendChild(opt);
+  });
+
+  modSelect.onchange = () => populateDrugs(modSelect.value);
+  populateDrugs(modules[0].id);
+}
+
+function populateDrugs(moduleId) {
+  const drugSelect = document.getElementById("drugSelect");
+  drugSelect.innerHTML = "";
+
+  const module = modules.find(m => m.id === moduleId);
+
+  module.drugs.forEach(drugId => {
+    const drug = drugs.find(d => d.id === drugId);
+
+    const opt = document.createElement("option");
+    opt.value = drug.id;
+    opt.textContent = drug.name;
+    drugSelect.appendChild(opt);
+  });
+
+  drugSelect.onchange = () => loadDrug(drugSelect.value);
+  loadDrug(module.drugs[0]);
+}
+
 
 // Load drug database
 fetch("data/drugs.json")
