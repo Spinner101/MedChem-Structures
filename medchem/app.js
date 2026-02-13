@@ -1,18 +1,36 @@
+// ==========================================
+// MedChem Drug Card Trainer App (Clean V3)
+// Tablet-first: iPad + Android Stylus Ready
+// ==========================================
+
 let drugs = [];
 let modules = [];
 let currentDrug = null;
 
+let attempts = 0;
+
+// ==========================================
+// Load Drug + Module Data
+// ==========================================
 Promise.all([
   fetch("data/drugs.json").then(r => r.json()),
   fetch("data/modules.json").then(r => r.json())
-]).then(([drugData, moduleData]) => {
-  drugs = drugData.drugs;
-  modules = moduleData.modules;
-  populateModules();
-});
+])
+  .then(([drugData, moduleData]) => {
+    drugs = drugData.drugs;
+    modules = moduleData.modules;
+    populateModules();
+  })
+  .catch(err => {
+    console.error("❌ Data loading error:", err);
+  });
 
+// ==========================================
+// Populate Module Dropdown
+// ==========================================
 function populateModules() {
   const modSelect = document.getElementById("moduleSelect");
+  modSelect.innerHTML = "";
 
   modules.forEach(m => {
     const opt = document.createElement("option");
@@ -21,18 +39,30 @@ function populateModules() {
     modSelect.appendChild(opt);
   });
 
-  modSelect.onchange = () => populateDrugs(modSelect.value);
+  modSelect.addEventListener("change", () => {
+    populateDrugs(modSelect.value);
+  });
+
   populateDrugs(modules[0].id);
 }
 
+// ==========================================
+// Populate Drug Dropdown (Based on Module)
+// ==========================================
 function populateDrugs(moduleId) {
   const drugSelect = document.getElementById("drugSelect");
   drugSelect.innerHTML = "";
 
-  const module = modules.find(m => m.id === moduleId);
+  const mod = modules.find(m => m.id === moduleId);
 
-  module.drugs.forEach(drugId => {
+  if (!mod || mod.drugs.length === 0) {
+    console.warn("⚠️ No drugs found in module:", moduleId);
+    return;
+  }
+
+  mod.drugs.forEach(drugId => {
     const drug = drugs.find(d => d.id === drugId);
+    if (!drug) return;
 
     const opt = document.createElement("option");
     opt.value = drug.id;
@@ -40,113 +70,168 @@ function populateDrugs(moduleId) {
     drugSelect.appendChild(opt);
   });
 
-  drugSelect.onchange = () => loadDrug(drugSelect.value);
-  loadDrug(module.drugs[0]);
-}
-
-
-// Load drug database
-fetch("data/drugs.json")
-  .then(res => res.json())
-  .then(data => {
-    drugs = data.drugs;
-    populateDropdown();
+  drugSelect.addEventListener("change", () => {
+    loadDrug(drugSelect.value);
   });
 
-function populateDropdown() {
-  const select = document.getElementById("drugSelect");
-
-  drugs.forEach(d => {
-    const opt = document.createElement("option");
-    opt.value = d.id;
-    opt.textContent = d.name;
-    select.appendChild(opt);
-  });
-
-  select.onchange = () => loadDrug(select.value);
-  loadDrug(drugs[0].id);
+  loadDrug(mod.drugs[0]);
 }
 
+// ==========================================
+// Load Drug Card Fields
+// ==========================================
 function loadDrug(id) {
   currentDrug = drugs.find(d => d.id === id);
+  if (!currentDrug) return;
 
-  document.getElementById("drugName").textContent = currentDrug.name;
-  document.getElementById("therapeutic").textContent = currentDrug.therapeutic_area;
-  document.getElementById("mechanism").textContent = currentDrug.mechanism;
-  document.getElementById("target").textContent = currentDrug.target;
-  document.getElementById("sar").textContent = currentDrug.sar;
-  document.getElementById("metabolism").textContent = currentDrug.metabolism;
-  document.getElementById("pk").textContent = currentDrug.pk;
-  document.getElementById("ddis").textContent = currentDrug.ddis;
-  document.getElementById("clinical").textContent = currentDrug.clinical;
+  // Core Drug Info
+  document.getElementById("drugName").textContent =
+    currentDrug.name || "";
 
+  document.getElementById("therapeutic").textContent =
+    currentDrug.therapeutic_area || "";
+
+  document.getElementById("mechanism").textContent =
+    currentDrug.mechanism_of_action || "";
+
+  document.getElementById("target").textContent =
+    currentDrug.target || "";
+
+  // SAR Points (array → readable bullets)
+  document.getElementById("sar").textContent =
+    Array.isArray(currentDrug.sar_key_points)
+      ? currentDrug.sar_key_points.join(" • ")
+      : "";
+
+  // Metabolism
+  document.getElementById("metabolism").textContent =
+    currentDrug.metabolism || "";
+
+  // PK / ADMET
+  document.getElementById("pk").textContent =
+    currentDrug.pk_admet || "";
+
+  // DDIs (array)
+  document.getElementById("ddis").textContent =
+    Array.isArray(currentDrug.ddis)
+      ? currentDrug.ddis.join("; ")
+      : "";
+
+  // Clinical Significance
+  document.getElementById("clinical").textContent =
+    currentDrug.clinical_significance || "";
+
+  // Reset attempts + feedback
   attempts = 0;
   document.getElementById("feedbackMsg").textContent = "";
 }
 
-// Drawing Canvas Setup
+// ==========================================
+// Drawing Canvas (Apple Pencil + Stylus)
+// ==========================================
 const canvas = document.getElementById("drawCanvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = canvas.offsetWidth;
-canvas.height = 400;
+// Responsive Canvas Setup
+function resizeCanvas() {
+  const rect = canvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
 
-let drawing = false;
+  canvas.width = rect.width * dpr;
+  canvas.height = 400 * dpr;
 
-canvas.addEventListener("pointerdown", () => drawing = true);
-canvas.addEventListener("pointerup", () => drawing = false);
+  canvas.style.height = "400px";
 
-canvas.addEventListener("pointermove", e => {
-  if (!drawing) return;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.lineWidth = 3;
   ctx.lineCap = "round";
   ctx.strokeStyle = "black";
+}
 
-  ctx.lineTo(e.offsetX, e.offsetY);
-  ctx.stroke();
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+let drawing = false;
+let lastX = 0;
+let lastY = 0;
+
+canvas.addEventListener("pointerdown", (e) => {
+  drawing = true;
+  const r = canvas.getBoundingClientRect();
+  lastX = e.clientX - r.left;
+  lastY = e.clientY - r.top;
+  canvas.setPointerCapture(e.pointerId);
 });
 
-// Clear button
-document.getElementById("clearBtn").onclick = () => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-};
+canvas.addEventListener("pointerup", (e) => {
+  drawing = false;
+  canvas.releasePointerCapture(e.pointerId);
+  ctx.beginPath();
+});
 
-// Submit attempt logic
-document.getElementById("submitBtn").onclick = () => {
+canvas.addEventListener("pointermove", (e) => {
+  if (!drawing) return;
+
+  const r = canvas.getBoundingClientRect();
+  const x = e.clientX - r.left;
+  const y = e.clientY - r.top;
+
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(x, y);
+  ctx.stroke();
+
+  lastX = x;
+  lastY = y;
+});
+
+// ==========================================
+// Clear Canvas Button
+// ==========================================
+document.getElementById("clearBtn").addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+// ==========================================
+// Submit Attempt Button → Hint Unlock
+// ==========================================
+document.getElementById("submitBtn").addEventListener("click", () => {
   attempts++;
+
   if (attempts < 2) {
     document.getElementById("feedbackMsg").textContent =
       "⚠️ Not quite. Try again before hint unlock.";
   } else {
     document.getElementById("feedbackMsg").textContent =
-      "💡 Hint: Compare key functional groups with the correct structure.";
+      "💡 Hint unlocked: Compare key functional groups with the correct structure.";
   }
-};
+});
 
-// Modal popup
+// ==========================================
+// Correct Structure Popup Modal
+// ==========================================
 const modal = document.getElementById("structureModal");
 
-document.getElementById("showStructureBtn").onclick = () => {
-  document.getElementById("modalDrugName").textContent = currentDrug.name;
+document.getElementById("showStructureBtn").addEventListener("click", () => {
+  if (!currentDrug) return;
+
+  document.getElementById("modalDrugName").textContent =
+    currentDrug.name;
+
+  // IMPORTANT: medchem is a subfolder → go up one level
   document.getElementById("modalStructureImg").src =
-    `assets/structures/png/${currentDrug.id}.png`;
+    `../assets/structures/png/${currentDrug.id}.png`;
 
   modal.classList.remove("hidden");
-};
+});
 
-document.getElementById("closeModal").onclick = () => {
+document.getElementById("closeModal").addEventListener("click", () => {
   modal.classList.add("hidden");
-};
+});
 
-// SAR checkpoint lock
-document.getElementById("sarQuiz").onchange = (e) => {
-  const result = document.getElementById("sarResult");
-
-  if (e.target.value === "correct") {
-    result.textContent = "✅ Correct — proceed!";
-    result.style.color = "green";
-  } else {
-    result.textContent = "❌ Incorrect — try again.";
-    result.style.color = "red";
+// Tap outside modal closes it
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.add("hidden");
   }
-};
+});
