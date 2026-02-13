@@ -1,0 +1,227 @@
+{
+  "drugs": [
+    {
+      "id": "levodopa",
+      "name": "Levodopa (L-Dopa)",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease",
+      "mechanism_of_action": "Dopamine precursor converted to dopamine in the CNS.",
+      "target": "Dopamine deficiency replacement strategy",
+      "sar_key_points": [
+        "Catechol ring required for dopaminergic activity",
+        "Amino acid scaffold allows transport across BBB via amino acid transporters",
+        "Extensive peripheral metabolism limits CNS availability"
+      ],
+      "metabolism": "Decarboxylation and COMT-mediated O-methylation (dopamine pathway).",
+      "pk_admet": "Short half-life; requires peripheral decarboxylase inhibitor to improve CNS delivery.",
+      "ddis": [
+        "Peripheral metabolism reduced by carbidopa coadministration"
+      ],
+      "clinical_significance": "Most effective therapy for motor symptoms of PD.",
+      "checkpoints": [
+        {
+          "question": "Why must levodopa be combined with carbidopa?",
+          "answer": "To block peripheral metabolism and increase CNS dopamine availability.",
+          "hint": "Think peripheral decarboxylation."
+        }
+      ]
+    },
+
+    {
+      "id": "carbidopa",
+      "name": "Carbidopa",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease (Adjunct)",
+      "mechanism_of_action": "Peripheral aromatic L-amino acid decarboxylase inhibitor.",
+      "target": "DOPA decarboxylase (periphery)",
+      "sar_key_points": [
+        "Hydrazine functionality enables enzyme inhibition",
+        "Does not cross BBB → selective peripheral action"
+      ],
+      "metabolism": "Forms hydrazone linkage with PLP cofactor of decarboxylase enzyme.",
+      "pk_admet": "Improves levodopa bioavailability and reduces peripheral side effects.",
+      "ddis": [],
+      "clinical_significance": "Standard combination with levodopa therapy.",
+      "checkpoints": [
+        {
+          "question": "Does carbidopa cross the BBB?",
+          "answer": "No",
+          "hint": "It is designed for peripheral selectivity."
+        }
+      ]
+    },
+
+    {
+      "id": "rasagiline",
+      "name": "Rasagiline",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease",
+      "mechanism_of_action": "Irreversible MAO-B inhibitor → prevents dopamine breakdown.",
+      "target": "Monoamine oxidase-B",
+      "sar_key_points": [
+        "Propargylamine group forms covalent interaction with MAO-B flavin cofactor",
+        "Selectivity for MAO-B reduces tyramine dietary risk"
+      ],
+      "metabolism": "CYP1A2 metabolism → aminoindan metabolites.",
+      "pk_admet": "Once-daily dosing; good CNS penetration.",
+      "ddis": [
+        "Avoid serotonergic combinations → serotonin syndrome risk"
+      ],
+      "clinical_significance": "Used as monotherapy or adjunct to levodopa.",
+      "checkpoints": [
+        {
+          "question": "What functional group drives MAO-B irreversible inhibition?",
+          "answer": "Propargylamine",
+          "hint": "Covalent flavin binding."
+        }
+      ]
+    },
+
+    {
+      "id": "selegiline",
+      "name": "Selegiline",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease",
+      "mechanism_of_action": "MAO-B inhibitor increasing CNS dopamine levels.",
+      "target": "Monoamine oxidase-B",
+      "sar_key_points": [
+        "Propargylamine scaffold responsible for MAO-B inhibition",
+        "Metabolized to amphetamine-like derivatives"
+      ],
+      "metabolism": "Produces N-desmethylselegiline and amphetamine metabolites.",
+      "pk_admet": "Risk of stimulant-like adverse effects due to metabolites.",
+      "ddis": [
+        "Avoid serotonergic drugs → serotonin syndrome risk"
+      ],
+      "clinical_significance": "Adjunct therapy, less preferred due to metabolites.",
+      "checkpoints": []
+    },
+
+    {
+      "id": "safinamide",
+      "name": "Safinamide",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease",
+      "mechanism_of_action": "Reversible MAO-B inhibitor with additional modulation effects.",
+      "target": "Monoamine oxidase-B",
+      "sar_key_points": [
+        "Amide + aromatic ether scaffold",
+        "Does not form amphetamine metabolites"
+      ],
+      "metabolism": "Amidase + CYP metabolism, glucuronidation pathways.",
+      "pk_admet": "High bioavailability; adjunct in PD patients.",
+      "ddis": [
+        "Caution with serotonergic agents"
+      ],
+      "clinical_significance": "Adjunct option with improved tolerability.",
+      "checkpoints": []
+    },
+
+    {
+      "id": "entacapone",
+      "name": "Entacapone",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease (Adjunct)",
+      "mechanism_of_action": "COMT inhibitor → prevents levodopa methylation in periphery.",
+      "target": "Catechol-O-methyltransferase",
+      "sar_key_points": [
+        "Nitrocatechol pharmacophore essential for COMT binding",
+        "Primarily peripheral action"
+      ],
+      "metabolism": "Glucuronidation major pathway (Z-isomerization).",
+      "pk_admet": "Short acting; given with each levodopa dose.",
+      "ddis": [],
+      "clinical_significance": "Reduces wearing-off effect of levodopa.",
+      "checkpoints": []
+    },
+
+    {
+      "id": "tolcapone",
+      "name": "Tolcapone",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease (Adjunct)",
+      "mechanism_of_action": "COMT inhibitor acting both centrally and peripherally.",
+      "target": "Catechol-O-methyltransferase",
+      "sar_key_points": [
+        "Nitrocatechol scaffold binds COMT active site",
+        "Greater potency than entacapone"
+      ],
+      "metabolism": "CYP3A4/CYP2D6 oxidation + glucuronidation.",
+      "pk_admet": "Longer acting but hepatotoxicity risk.",
+      "ddis": [],
+      "clinical_significance": "Reserved due to liver toxicity concerns.",
+      "checkpoints": []
+    },
+
+    {
+      "id": "apomorphine",
+      "name": "Apomorphine",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease (Rescue)",
+      "mechanism_of_action": "Dopamine receptor agonist (D2-like).",
+      "target": "Dopamine receptors",
+      "sar_key_points": [
+        "Rigid polycyclic scaffold mimics dopamine binding conformation",
+        "Catechol hydroxyl groups important for receptor interaction"
+      ],
+      "metabolism": "Extensive hepatic metabolism.",
+      "pk_admet": "Rapid onset; used for acute off episodes.",
+      "ddis": [],
+      "clinical_significance": "Rescue therapy for sudden motor fluctuations.",
+      "checkpoints": []
+    },
+
+    {
+      "id": "pramipexole",
+      "name": "Pramipexole",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease",
+      "mechanism_of_action": "Dopamine receptor agonist (D3-preferring).",
+      "target": "Dopamine receptors",
+      "sar_key_points": [
+        "Non-catechol agonist improves stability",
+        "Thiazole-containing scaffold"
+      ],
+      "metabolism": "Minimal hepatic metabolism.",
+      "pk_admet": "Longer duration than levodopa.",
+      "ddis": [],
+      "clinical_significance": "Used early or adjunct in PD therapy.",
+      "checkpoints": []
+    },
+
+    {
+      "id": "ropinirole",
+      "name": "Ropinirole",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease",
+      "mechanism_of_action": "Dopamine receptor agonist.",
+      "target": "Dopamine receptors",
+      "sar_key_points": [
+        "Indole-based non-catechol scaffold"
+      ],
+      "metabolism": "CYP metabolism.",
+      "pk_admet": "Oral agonist used in early PD.",
+      "ddis": [],
+      "clinical_significance": "Adjunct or monotherapy option.",
+      "checkpoints": []
+    },
+
+    {
+      "id": "rotigotine",
+      "name": "Rotigotine",
+      "module": "PD",
+      "therapeutic_area": "Parkinson’s Disease",
+      "mechanism_of_action": "Dopamine receptor agonist delivered via transdermal patch.",
+      "target": "Dopamine receptors",
+      "sar_key_points": [
+        "Thiophene-containing agonist scaffold",
+        "Patch delivery improves adherence"
+      ],
+      "metabolism": "Hepatic metabolism.",
+      "pk_admet": "Continuous delivery reduces fluctuations.",
+      "ddis": [],
+      "clinical_significance": "Transdermal dopamine agonist option.",
+      "checkpoints": []
+    }
+  ]
+}

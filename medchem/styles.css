@@ -1,0 +1,95 @@
+body {
+  font-family: system-ui;
+  margin: 0;
+  background: #f7f8fb;
+}
+
+header {
+  text-align: center;
+  padding: 15px;
+  background: white;
+  border-bottom: 2px solid #ddd;
+}
+
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  height: 90vh;
+}
+
+.panel {
+  flex: 1;
+  padding: 15px;
+  min-width: 350px;
+}
+
+.left {
+  background: #fff;
+}
+
+.right {
+  background: #f0f3ff;
+}
+
+canvas {
+  border: 2px solid #333;
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  touch-action: none;
+}
+
+.tools button {
+  margin: 8px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 14px;
+  margin-top: 15px;
+}
+
+.checkpoint {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff6d6;
+  border-radius: 14px;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.modal-content img {
+  width: 100%;
+}
+
+#closeModal {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>MedChem Drug Card App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<header>
+  <h1>🧪 Medicinal Chemistry Drug Card Trainer</h1>
+  <p>Draw structures • Identify SAR • Unlock hints • Verify accuracy</p>
+</header>
+
+<main class="layout">
+
+  <!-- LEFT PANEL: Drawing -->
+  <section class="panel left">
+    <h2>✍️ Structure Drawing Canvas</h2>
+
+    <canvas id="drawCanvas"></canvas>
+
+    <div class="tools">
+      <button id="clearBtn">Clear</button>
+      <button id="submitBtn">Submit Attempt</button>
+      <button id="showStructureBtn">Show Correct Structure</button>
+    </div>
+
+    <p id="feedbackMsg"></p>
+  </section>
+
+  <!-- RIGHT PANEL: Drug Card -->
+  <section class="panel right">
+    <h2>💊 Drug Card</h2>
+    <label>Select Module:</label>
+    <select id="moduleSelect"></select>
+    
+    <label>Select Drug:</label>
+    <select id="drugSelect"></select>
+
+    <div class="card">
+      <h3 id="drugName"></h3>
+
+      <p><b>Therapeutic Area:</b> <span id="therapeutic"></span></p>
+      <p><b>Mechanism:</b> <span id="mechanism"></span></p>
+      <p><b>Target:</b> <span id="target"></span></p>
+
+      <p><b>SAR Key:</b> <span id="sar"></span></p>
+
+      <p><b>Metabolism:</b> <span id="metabolism"></span></p>
+      <p><b>PK / ADMET:</b> <span id="pk"></span></p>
+      <p><b>DDIs:</b> <span id="ddis"></span></p>
+      <p><b>Clinical Significance:</b> <span id="clinical"></span></p>
+    </div>
+
+    <!-- Locked SAR Checkpoint -->
+    <div class="checkpoint">
+      <h3>✅ SAR Checkpoint (Go/No-Go)</h3>
+
+      <p>Select the key pharmacophore feature:</p>
+
+      <select id="sarQuiz">
+        <option value="">-- Choose --</option>
+        <option value="wrong">Random alkyl chain</option>
+        <option value="wrong">No aromatic ring needed</option>
+        <option value="correct">Catechol + amine backbone</option>
+      </select>
+
+      <p id="sarResult"></p>
+    </div>
+
+  </section>
+</main>
+
+<!-- STRUCTURE MODAL -->
+<div id="structureModal" class="modal hidden">
+  <div class="modal-content">
+    <span id="closeModal">&times;</span>
+    <h2 id="modalDrugName"></h2>
+    <img id="modalStructureImg" />
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
