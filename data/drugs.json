@@ -3,26 +3,79 @@
     {
       "id": "levodopa",
       "name": "Levodopa",
+      "module": "pd",
+
       "therapeutic_area": "Parkinson’s Disease",
-      "mechanism": "Dopamine precursor; converted in CNS",
+      "mechanism_of_action": "Dopamine precursor converted in CNS",
       "target": "DOPA decarboxylase pathway",
-      "sar": "Catechol + amino acid backbone required",
-      "metabolism": "Peripheral decarboxylation unless paired with carbidopa",
-      "pk": "Short half-life; crosses BBB via amino acid transporter",
-      "ddis": "High-protein meals reduce absorption",
-      "clinical": "Gold standard for motor symptoms"
+
+      "pharmacophore": [
+        "Catechol ring",
+        "Primary amine",
+        "Amino acid backbone"
+      ],
+
+      "sar": [
+        "Catechol is essential for receptor binding",
+        "Peripheral metabolism limits bioavailability",
+        "Carbidopa improves CNS delivery"
+      ],
+
+      "metabolism": "Decarboxylation + COMT methylation",
+      "pk_admet": "Short half-life; BBB penetration via transporter",
+      "ddis": [
+        "High-protein meals reduce absorption",
+        "Nonselective MAO inhibitors contraindicated"
+      ],
+
+      "clinical_significance": "Most effective agent for motor symptoms",
+
+      "checkpoints": [
+        {
+          "question": "Which functional group is required for dopamine receptor activity?",
+          "options": ["Random alkyl chain", "Catechol ring", "Ester only"],
+          "answer": "Catechol ring",
+          "hint": "Think aromatic hydroxyl binding interactions."
+        }
+      ]
     },
+
     {
       "id": "carbamazepine",
       "name": "Carbamazepine",
+      "module": "aed",
+
       "therapeutic_area": "Epilepsy (Focal Seizures)",
-      "mechanism": "Use-dependent Na⁺ channel blocker",
+      "mechanism_of_action": "Use-dependent Na⁺ channel blocker",
       "target": "Voltage-gated sodium channels",
-      "sar": "Tricyclic scaffold important for activity",
-      "metabolism": "CYP3A4 → active epoxide metabolite; autoinduction",
-      "pk": "Highly lipophilic; induces metabolism of other drugs",
-      "ddis": "Strong CYP inducer (↓ warfarin, OCs)",
-      "clinical": "Effective but requires monitoring"
+
+      "pharmacophore": [
+        "Tricyclic scaffold",
+        "Carboxamide group"
+      ],
+
+      "sar": [
+        "Tricyclic core mimics TCA-like binding",
+        "Epoxide metabolite contributes to toxicity"
+      ],
+
+      "metabolism": "CYP3A4 → active epoxide; autoinduction",
+      "pk_admet": "Lipophilic; strong hepatic enzyme inducer",
+      "ddis": [
+        "Induces CYP enzymes (↓ warfarin, OCs)",
+        "Interactions with other antiseizure meds"
+      ],
+
+      "clinical_significance": "Effective but requires monitoring",
+
+      "checkpoints": [
+        {
+          "question": "Carbamazepine is best classified as:",
+          "options": ["GABA agonist", "Na⁺ channel blocker", "NMDA antagonist"],
+          "answer": "Na⁺ channel blocker",
+          "hint": "Think use-dependent inactivation."
+        }
+      ]
     }
   ]
 }
