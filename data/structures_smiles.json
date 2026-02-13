@@ -1,32 +1,17 @@
 {
-  "meta": {
-    "schema": "structure_library_v1",
-    "notes": "Fill in SMILES, then run generate_structures.py to produce assets/structures/svg and png."
-  },
+  "meta": { "schema": "structure_library_v1" },
   "drugs": [
-    { "id": "levodopa", "name": "Levodopa", "module": "PD", "smiles": "" },
-    { "id": "carbidopa", "name": "Carbidopa", "module": "PD", "smiles": "" },
-    { "id": "selegiline", "name": "Selegiline", "module": "PD", "smiles": "" },
-    { "id": "rasagiline", "name": "Rasagiline", "module": "PD", "smiles": "" },
-    { "id": "safinamide", "name": "Safinamide", "module": "PD", "smiles": "" },
-    { "id": "entacapone", "name": "Entacapone", "module": "PD", "smiles": "" },
-    { "id": "tolcapone", "name": "Tolcapone", "module": "PD", "smiles": "" },
-    { "id": "pramipexole", "name": "Pramipexole", "module": "PD", "smiles": "" },
-    { "id": "ropinirole", "name": "Ropinirole", "module": "PD", "smiles": "" },
-    { "id": "rotigotine", "name": "Rotigotine", "module": "PD", "smiles": "" },
-    { "id": "apomorphine", "name": "Apomorphine", "module": "PD", "smiles": "" },
-    { "id": "amantadine", "name": "Amantadine", "module": "PD", "smiles": "" },
-
-    { "id": "phenytoin", "name": "Phenytoin", "module": "AED", "smiles": "" },
-    { "id": "fosphenytoin", "name": "Fosphenytoin", "module": "AED", "smiles": "" },
-    { "id": "carbamazepine", "name": "Carbamazepine", "module": "AED", "smiles": "" },
-    { "id": "oxcarbazepine", "name": "Oxcarbazepine", "module": "AED", "smiles": "" },
-    { "id": "valproic_acid", "name": "Valproic acid", "module": "AED", "smiles": "" },
-    { "id": "lamotrigine", "name": "Lamotrigine", "module": "AED", "smiles": "" },
-    { "id": "levetiracetam", "name": "Levetiracetam", "module": "AED", "smiles": "" },
-    { "id": "topiramate", "name": "Topiramate", "module": "AED", "smiles": "" },
-    { "id": "gabapentin", "name": "Gabapentin", "module": "AED", "smiles": "" },
-    { "id": "pregabalin", "name": "Pregabalin", "module": "AED", "smiles": "" },
-    { "id": "vigabatrin", "name": "Vigabatrin", "module": "AED", "smiles": "" }
+    {
+      "id": "amantadine",
+      "name": "Amantadine",
+      "module": "PD",
+      "smiles": "NC1C2CC3CC(C2)CC(C1)C3"
+    },
+    {
+      "id": "levodopa",
+      "name": "Levodopa",
+      "module": "PD",
+      "smiles": "N[C@@H](CC1=CC(O)=C(O)C=C1)C(O)=O"
+    }
   ]
 }
