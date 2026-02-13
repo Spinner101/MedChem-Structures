@@ -1,0 +1,28 @@
+{
+  "drugs": [
+    {
+      "id": "levodopa",
+      "name": "Levodopa",
+      "therapeutic_area": "Parkinson’s Disease",
+      "mechanism": "Dopamine precursor; converted in CNS",
+      "target": "DOPA decarboxylase pathway",
+      "sar": "Catechol + amino acid backbone required",
+      "metabolism": "Peripheral decarboxylation unless paired with carbidopa",
+      "pk": "Short half-life; crosses BBB via amino acid transporter",
+      "ddis": "High-protein meals reduce absorption",
+      "clinical": "Gold standard for motor symptoms"
+    },
+    {
+      "id": "carbamazepine",
+      "name": "Carbamazepine",
+      "therapeutic_area": "Epilepsy (Focal Seizures)",
+      "mechanism": "Use-dependent Na⁺ channel blocker",
+      "target": "Voltage-gated sodium channels",
+      "sar": "Tricyclic scaffold important for activity",
+      "metabolism": "CYP3A4 → active epoxide metabolite; autoinduction",
+      "pk": "Highly lipophilic; induces metabolism of other drugs",
+      "ddis": "Strong CYP inducer (↓ warfarin, OCs)",
+      "clinical": "Effective but requires monitoring"
+    }
+  ]
+}
