@@ -1,0 +1,24 @@
+{
+  "modules": [
+    {
+      "id": "pd",
+      "name": "Parkinson’s Disease Drugs",
+      "drugs": ["levodopa", "carbidopa", "selegiline", "rasagiline"]
+    },
+    {
+      "id": "aed",
+      "name": "Anticonvulsants",
+      "drugs": ["carbamazepine", "phenytoin", "lamotrigine"]
+    },
+    {
+      "id": "antipsychotics",
+      "name": "Antipsychotics",
+      "drugs": []
+    },
+    {
+      "id": "antibiotics",
+      "name": "Antibiotics",
+      "drugs": []
+    }
+  ]
+}
