@@ -24,9 +24,26 @@
           "answer": "To block peripheral metabolism and increase CNS dopamine availability.",
           "hint": "Think peripheral decarboxylation."
         }
-      ]
+      ],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     },
-
     {
       "id": "carbidopa",
       "name": "Carbidopa",
@@ -48,9 +65,26 @@
           "answer": "No",
           "hint": "It is designed for peripheral selectivity."
         }
-      ]
+      ],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     },
-
     {
       "id": "rasagiline",
       "name": "Rasagiline",
@@ -74,9 +108,26 @@
           "answer": "Propargylamine",
           "hint": "Covalent flavin binding."
         }
-      ]
+      ],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     },
-
     {
       "id": "selegiline",
       "name": "Selegiline",
@@ -94,9 +145,26 @@
         "Avoid serotonergic drugs → serotonin syndrome risk"
       ],
       "clinical_significance": "Adjunct therapy, less preferred due to metabolites.",
-      "checkpoints": []
+      "checkpoints": [],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     },
-
     {
       "id": "safinamide",
       "name": "Safinamide",
@@ -114,9 +182,26 @@
         "Caution with serotonergic agents"
       ],
       "clinical_significance": "Adjunct option with improved tolerability.",
-      "checkpoints": []
+      "checkpoints": [],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     },
-
     {
       "id": "entacapone",
       "name": "Entacapone",
@@ -132,9 +217,26 @@
       "pk_admet": "Short acting; given with each levodopa dose.",
       "ddis": [],
       "clinical_significance": "Reduces wearing-off effect of levodopa.",
-      "checkpoints": []
+      "checkpoints": [],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     },
-
     {
       "id": "tolcapone",
       "name": "Tolcapone",
@@ -150,9 +252,26 @@
       "pk_admet": "Longer acting but hepatotoxicity risk.",
       "ddis": [],
       "clinical_significance": "Reserved due to liver toxicity concerns.",
-      "checkpoints": []
+      "checkpoints": [],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     },
-
     {
       "id": "apomorphine",
       "name": "Apomorphine",
@@ -168,9 +287,26 @@
       "pk_admet": "Rapid onset; used for acute off episodes.",
       "ddis": [],
       "clinical_significance": "Rescue therapy for sudden motor fluctuations.",
-      "checkpoints": []
+      "checkpoints": [],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     },
-
     {
       "id": "pramipexole",
       "name": "Pramipexole",
@@ -186,9 +322,26 @@
       "pk_admet": "Longer duration than levodopa.",
       "ddis": [],
       "clinical_significance": "Used early or adjunct in PD therapy.",
-      "checkpoints": []
+      "checkpoints": [],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     },
-
     {
       "id": "ropinirole",
       "name": "Ropinirole",
@@ -203,9 +356,26 @@
       "pk_admet": "Oral agonist used in early PD.",
       "ddis": [],
       "clinical_significance": "Adjunct or monotherapy option.",
-      "checkpoints": []
+      "checkpoints": [],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     },
-
     {
       "id": "rotigotine",
       "name": "Rotigotine",
@@ -221,7 +391,25 @@
       "pk_admet": "Continuous delivery reduces fluctuations.",
       "ddis": [],
       "clinical_significance": "Transdermal dopamine agonist option.",
-      "checkpoints": []
+      "checkpoints": [],
+      "admet_flags": [],
+      "cyp_enzymes": [],
+      "transporters": [],
+      "half_life": "",
+      "bioavailability": "",
+      "bbb": "",
+      "elimination": "",
+      "contraindications": [],
+      "boxed_warnings": [],
+      "physchem": {
+        "mw": "",
+        "logp": "",
+        "tpsa": "",
+        "hbd": "",
+        "hba": "",
+        "pka": ""
+      },
+      "clinical_pearls": []
     }
   ]
 }

@@ -122,6 +122,49 @@ function loadDrug(id) {
     currentDrug.clinical_significance || "";
 
   // Reset attempts + feedback
+
+  // ===== Expanded MedChem Fields =====
+  const joinOrBlank = (val, sep = "; ") =>
+    Array.isArray(val) ? val.join(sep) : (val || "");
+
+  const setText = (id, text) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text ?? "";
+  };
+
+  setText("pk_admet", currentDrug.pk_admet || "");
+  setText("admet_flags", joinOrBlank(currentDrug.admet_flags));
+
+  setText("metabolism", currentDrug.metabolism || "");
+  setText("cyp_enzymes", joinOrBlank(currentDrug.cyp_enzymes));
+  setText("transporters", joinOrBlank(currentDrug.transporters));
+
+  setText("half_life", currentDrug.half_life || "");
+  setText("bioavailability", currentDrug.bioavailability || "");
+  setText("bbb", currentDrug.bbb || "");
+  setText("elimination", currentDrug.elimination || "");
+
+  // DDIs/Warnings (keeps your existing DDI rendering consistent)
+  setText("ddis", joinOrBlank(currentDrug.ddis));
+  setText("contraindications", joinOrBlank(currentDrug.contraindications));
+  setText("boxed_warnings", joinOrBlank(currentDrug.boxed_warnings));
+
+  // PhysChem formatting
+  const p = currentDrug.physchem || {};
+  const physchemLine = [
+    p.mw ? `MW: ${p.mw}` : "",
+    p.logp ? `logP: ${p.logp}` : "",
+    p.tpsa ? `tPSA: ${p.tpsa}` : "",
+    p.hbd ? `HBD: ${p.hbd}` : "",
+    p.hba ? `HBA: ${p.hba}` : "",
+    p.pka ? `pKa: ${p.pka}` : ""
+  ].filter(Boolean).join(" | ");
+
+  setText("physchem", physchemLine);
+  setText("clinical_pearls", joinOrBlank(currentDrug.clinical_pearls, " • "));
+  // ===== End Expanded MedChem Fields =====
+
+
   attempts = 0;
   document.getElementById("feedbackMsg").textContent = "";
 }
